@@ -20,6 +20,8 @@ const bookingRouter = require("./routes/bookingRoutes");
 //Start express App
 const app = express();
 
+app.use(compression());
+
 // 1) GLOBAL Middlewares
 //CORS middleware
 // app.use(cors({ credentials: true, origin: "http://localhost:3000/login" }));
@@ -81,8 +83,6 @@ app.use(
     ],
   })
 );
-
-app.use(compression());
 
 //Test Middleware
 app.use((req, res, next) => {
