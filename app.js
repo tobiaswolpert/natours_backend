@@ -20,6 +20,7 @@ const bookingRouter = require("./routes/bookingRoutes");
 //Start express App
 const app = express();
 
+app.enable("trust proxy");
 app.use(compression());
 
 // 1) GLOBAL Middlewares
