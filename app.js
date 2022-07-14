@@ -25,7 +25,6 @@ app.use(compression());
 
 // 1) GLOBAL Middlewares
 //CORS middleware
-// app.use(cors({ credentials: true, origin: "http://localhost:3000/login" }));
 app.use(cors());
 
 app.options("*", cors());
