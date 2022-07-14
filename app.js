@@ -16,6 +16,7 @@ const tourRouter = require("./routes/tourRoutes");
 const userRouter = require("./routes/userRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
 const bookingRouter = require("./routes/bookingRoutes");
+const bookingController = require("./controllers/bookingController");
 
 //Start express App
 const app = express();
@@ -59,6 +60,12 @@ if (process.env.NODE_ENV === "development") {
 //   message: "Too many requests from this IP, please try again in an hour!",
 // });
 // app.use("/api", limiter);
+
+app.post(
+  "/webhook-checkout",
+  express.raw({ type: "application/json" }),
+  bookingController.webhookCheckout
+);
 
 //BODY parser, reading data from the body into req.body
 app.use(express.json({ limit: "10kb" }));
